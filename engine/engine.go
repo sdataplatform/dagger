@@ -119,15 +119,8 @@ func Start(ctx context.Context, startOpts *Config, fn StartCallback) error {
 			secretsprovider.NewSecretProvider(secretStore),
 			socketProviders,
 		},
-		CacheExports: []bkclient.CacheOptionsEntry{{
-			Type: "dagger",
-			Attrs: map[string]string{
-				"mode": "max",
-			},
-		}},
-		CacheImports: []bkclient.CacheOptionsEntry{{
-			Type: "dagger",
-		}},
+		CacheExports:        []bkclient.CacheOptionsEntry{},
+		CacheImports:        []bkclient.CacheOptionsEntry{},
 		AllowedEntitlements: allowedEntitlements,
 	}
 
